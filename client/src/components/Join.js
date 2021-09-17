@@ -13,17 +13,17 @@ const Join = () => {
 	const [room, setRoom] = useState("");
 
 	return (
-		<Container>
-			<Form>
-				<h1 className="heading">Join</h1>
-				<Form.Group>
+		<div className="form-container d-flex justify-content-center">
+			<Form className="form m-auto">
+				<h2 className="heading">Join The Chat</h2>
+				<Form.Group className="form-group">
 					<Form.Control
 						type="text"
 						placeholder="Enter name"
 						onChange={(e) => setName(e.target.value)}
 					/>
 				</Form.Group>
-				<Form.Group>
+				<Form.Group className="form-group mt-4">
 					<Form.Control
 						type="text"
 						placeholder="Enter room"
@@ -34,12 +34,12 @@ const Join = () => {
 					onClick={(e) => (!name || !room ? e.preventDefault() : null)}
 					to={`/chat?name=${name}&room=${room}`}
 				>
-					<Button type="submit" variant="primary">
+					<Button type="submit" className="join-btn">
 						Sign In
 					</Button>
 				</Link>
 			</Form>
-		</Container>
+		</div>
 	);
 };
 
