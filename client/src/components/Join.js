@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { Container, Form, Button } from "react-bootstrap";
+import { Form, Button } from "react-bootstrap";
 
 // we basically have a form with two inputs and a button
 
@@ -14,30 +14,33 @@ const Join = () => {
 
 	return (
 		<div className="form-container d-flex justify-content-center">
-			<Form className="form m-auto">
-				<h2 className="heading">Join The Chat</h2>
-				<Form.Group className="form-group">
-					<Form.Control
-						type="text"
-						placeholder="Enter name"
-						onChange={(e) => setName(e.target.value)}
-					/>
-				</Form.Group>
-				<Form.Group className="form-group mt-4">
-					<Form.Control
-						type="text"
-						placeholder="Enter room"
-						onChange={(e) => setRoom(e.target.value)}
-					/>
-				</Form.Group>
-				<Link
-					onClick={(e) => (!name || !room ? e.preventDefault() : null)}
-					to={`/chat?name=${name}&room=${room}`}
-				>
-					<Button type="submit" className="join-btn">
-						Sign In
-					</Button>
-				</Link>
+			<Form className="form m-auto d-flex justify-content-center">
+				<div className="auto">
+					<h2 className="heading mt-5 text-center">Join The Chat</h2>
+					<Form.Group className="form-group mt-3">
+						<Form.Control
+							type="text"
+							placeholder="Enter name"
+							onChange={(e) => setName(e.target.value)}
+							className="form-control"
+						/>
+					</Form.Group>
+					<Form.Group className="form-group mt-4">
+						<Form.Control
+							type="text"
+							placeholder="Enter room"
+							onChange={(e) => setRoom(e.target.value)}
+						/>
+					</Form.Group>
+					<Link
+						onClick={(e) => (!name || !room ? e.preventDefault() : null)}
+						to={`/chat?name=${name}&room=${room}`}
+					>
+						<Button type="submit" className="join-btn mt-3">
+							Sign In
+						</Button>
+					</Link>
+				</div>
 			</Form>
 		</div>
 	);
