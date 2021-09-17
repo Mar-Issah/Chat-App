@@ -12,13 +12,16 @@ code {
 		monospace;
 }
 
+/* Join component */
 .form-container {
 	height: 100vh;
 	width: 100vw;
-	background: rgba(196, 196, 196, 0.7);
+	background: rgba(196, 196, 196, 0.9);
 }
 .heading {
 	color: rgb(179, 139, 32);
+	border-bottom: 3px solid rgb(179, 139, 32);
+	padding-bottom: 0.25rem;
 }
 .form {
 	width: 31.5625rem;
@@ -32,6 +35,7 @@ code {
 .form-group {
 	width: 21.75rem;
 	height: 2.25rem;
+	padding-top: 0.75rem;
 }
 
 .join-btn {
@@ -46,3 +50,5 @@ code {
 	background-color: rgba(179, 139, 32, 0.3) !important;
 	color: rgb(0, 0, 0) !important;
 }
+
+/* Join component  end*/
