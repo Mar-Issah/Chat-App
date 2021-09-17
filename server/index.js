@@ -18,7 +18,7 @@ const server = http.createServer(app);
 
 //use the router as middleware now go to port 5000 on browser and you will see the message
 app.use(router);
-app.use(cors());
+//app.use(cors());
 
 // the socket io passing in the created server after which we can use it to make/build our app
 
