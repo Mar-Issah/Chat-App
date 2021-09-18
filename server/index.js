@@ -28,12 +28,21 @@ app.use(router);
 
 //there us a third callback/cb fxn we can pass which send message back to the client or can be used to handle errors
 
+//HELPER FUNCTIONS HERE
+//lets destrusture the helper function and use it in our app
+
+//the addUser fxn either returns error or user. call it here pass in params and get the returns. if error prin the error in the cb fxn
+
+const { addUser, removeUser, getUser, getUsersInRoom } = require("./users");
+
 const io = socketio(server);
 io.on("connection", (socket) => {
 	console.log("a new user connected");
 
 	socket.on("join", ({ name, room }, cb) => {
-		console.log(name, room);
+		const { error, user } = addUser({ id: socket.id, name, room });
+
+		if (error) return cb(error);
 	});
 	socket.on("disconnect", () => {
 		console.log("user has disconnected");
