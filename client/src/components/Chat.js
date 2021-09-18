@@ -8,7 +8,13 @@ import io from "socket.io-client";
 
 //we will need the name an room here as well so add the states
 
-//we realize that we get multiple renders. to prevent that we add dependency list to use effect so that it runs only if the endpoint / location.search changes
+//we realize that we get multiple renders. to prevent that we add dependency list to use effect so that it runs only if the endpoint/location.search changes
+
+//socket.emit sends/broadcast the message to anyone/backend. You can call it whatever apert from join and add a payload which is the desstructured name and room
+
+//socket.emit("join", { name, room }, ({ error }) => {alert(error)}); destructure the cb and do something to it
+
+//we now have to implement our cleanup which will emit the disconnect and turn the socket off for the userr
 
 let socket;
 
@@ -25,7 +31,15 @@ const Chat = ({ location }) => {
 		setName(name);
 		setRoom(room);
 
+		socket.emit("join", { name, room }, () => {});
+
 		console.log(socket);
+
+		return () => {
+			socket.emit("disconnect");
+
+			socket.off();
+		};
 	}, [ENDPOINT, location.search]);
 	return <div>Chat</div>;
 };

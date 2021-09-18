@@ -23,9 +23,18 @@ app.use(router);
 // the socket io passing in the created server after which we can use it to make/build our app
 
 //now with the io lets implement the connect and disconnect for when the user joins or leaves at the client side...(socket) is the client
+
+//to get the emmited value from client and make use of it we use socket.on after the connection
+
+//there us a third callback/cb fxn we can pass which send message back to the client or can be used to handle errors
+
 const io = socketio(server);
 io.on("connection", (socket) => {
 	console.log("a new user connected");
+
+	socket.on("join", ({ name, room }, cb) => {
+		console.log(name, room);
+	});
 	socket.on("disconnect", () => {
 		console.log("user has disconnected");
 	});
