@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import queryString from "query-string";
 import io from "socket.io-client";
 import InfoBar from "./InfoBar";
+import MessageInput from "./MessageInput";
 
 //we will use the query string to extract our query fron the url
 
@@ -22,6 +23,9 @@ import InfoBar from "./InfoBar";
 //on message from the server, add the message to the array and only render if the message changes
 
 //emit the sendMessage which goes to backend callback clear the string
+
+//CHILDREN COMPONENT
+//create child component and pass in props to be used in the component
 let socket;
 
 const Chat = ({ location }) => {
@@ -71,16 +75,11 @@ const Chat = ({ location }) => {
 			<div>
 				<InfoBar room={room} />
 
-				{/* <form onSubmit={sendMessage} style={{ margin: "0 auto" }}>
-					<input
-						value={message}
-						onChange={(e) => setMessage(e.target.value)}
-						style={{ height: "60px", width: "200px" }}
-					/>
-					<button type="submit" style={{ padding: "5px" }}>
-						Send Message
-					</button>
-				</form> */}
+				<MessageInput
+					message={message}
+					setMessage={setMessage}
+					sendMessage={sendMessage}
+				/>
 			</div>
 		</div>
 	);

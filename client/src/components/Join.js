@@ -14,7 +14,7 @@ const Join = () => {
 
 	return (
 		<div className="form-container d-flex justify-content-center">
-			<Form className="form m-auto d-flex justify-content-center">
+			<Form className="join-form m-auto d-flex justify-content-center">
 				<div className="auto">
 					<h2 className="heading mt-5 text-center">Join The Chat</h2>
 					<Form.Group className="form-group mt-3">
@@ -27,7 +27,7 @@ const Join = () => {
 							required
 						/>
 					</Form.Group>
-					<Form.Group className="form-group mt-4">
+					<Form.Group className="join-form-group mt-4">
 						<Form.Control
 							type="text"
 							placeholder="Enter room"
