@@ -55,8 +55,20 @@ code {
 
 /* Chat component */
 .chat-container {
-	width: 45%;
+	width: 35%;
 	height: 70%;
 	margin: 1.5rem auto;
+}
+
+.infobar-container {
+	background-color: rgb(179, 139, 32);
+	color: rgb(196, 196, 196);
+	border-radius: 5px 5px 0 0;
+}
+
+.icons-container {
+	display: flex;
+	justify-content: space-between;
+	padding: 0.75rem 0.75rem 0.75rem 1.25rem;
 }
 /* Chat component  end*/

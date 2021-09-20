@@ -1,21 +1,17 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { UserCheck, X } from "react-feather";
-import { Navbar, Nav, Container } from "react-bootstrap";
+import { Navbar, Nav } from "react-bootstrap";
 
 const InfoBar = ({ room }) => (
-	<div>
-		<Navbar className="nav-bar">
-			<Container>
-				<Nav className="me-auto">
-					<UserCheck size="35" color="green" />
-					<h3>{room}</h3>
-					<Nav.Link href="#pricing">
-						<X color="red" size="35" />
-					</Nav.Link>
-				</Nav>
-			</Container>
-		</Navbar>
+	<div className="infobar-container">
+		<div className="icons-container">
+			<UserCheck size="30" color="green" />
+			<h4>{room}</h4>
+			<Nav.Link href="#pricing">
+				<X color="red" size="30" />
+			</Nav.Link>
+		</div>
 	</div>
 );
 
