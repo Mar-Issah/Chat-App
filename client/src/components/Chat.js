@@ -67,7 +67,11 @@ const Chat = ({ location }) => {
 	console.log(message, messages);
 	return (
 		<div>
-			<form onSubmit={sendMessage} style={{ margin: "0 auto" }}>
+		<div>
+			
+		<InfoBar/>
+		
+			{/* <form onSubmit={sendMessage} style={{ margin: "0 auto" }}>
 				<input
 					value={message}
 					onChange={(e) => setMessage(e.target.value)}
@@ -76,7 +80,8 @@ const Chat = ({ location }) => {
 				<button type="submit" style={{ padding: "5px" }}>
 					Send Message
 				</button>
-			</form>
+			</form> */}
+			</div>
 		</div>
 	);
 };
