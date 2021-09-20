@@ -52,3 +52,11 @@ code {
 }
 
 /* Join component  end*/
+
+/* Chat component */
+.chat-container {
+	width: 45%;
+	height: 70%;
+	margin: 1.5rem auto;
+}
+/* Chat component  end*/

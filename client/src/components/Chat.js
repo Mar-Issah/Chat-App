@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import queryString from "query-string";
 import io from "socket.io-client";
+import InfoBar from "./InfoBar";
 
 //we will use the query string to extract our query fron the url
 
@@ -66,21 +67,20 @@ const Chat = ({ location }) => {
 
 	console.log(message, messages);
 	return (
-		<div>
-		<div>
-			
-		<InfoBar/>
-		
-			{/* <form onSubmit={sendMessage} style={{ margin: "0 auto" }}>
-				<input
-					value={message}
-					onChange={(e) => setMessage(e.target.value)}
-					style={{ height: "60px", width: "200px" }}
-				/>
-				<button type="submit" style={{ padding: "5px" }}>
-					Send Message
-				</button>
-			</form> */}
+		<div className="chat-container">
+			<div>
+				<InfoBar room={room} />
+
+				{/* <form onSubmit={sendMessage} style={{ margin: "0 auto" }}>
+					<input
+						value={message}
+						onChange={(e) => setMessage(e.target.value)}
+						style={{ height: "60px", width: "200px" }}
+					/>
+					<button type="submit" style={{ padding: "5px" }}>
+						Send Message
+					</button>
+				</form> */}
 			</div>
 		</div>
 	);
