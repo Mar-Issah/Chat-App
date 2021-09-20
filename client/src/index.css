@@ -83,8 +83,8 @@ code {
 	background-color: rgb(255, 255, 255);
 }
 .message-input {
-	display: flex;
 	width: 100% !important;
+	display: flex;
 }
 
 .sendButton {
@@ -94,5 +94,6 @@ code {
 
 .message-form-control {
 	border-radius: 0;
+	width: 100% !important;
 }
 /* Chat component  end*/
