@@ -14,13 +14,21 @@ import io from "socket.io-client";
 
 //socket.emit("join", { name, room }, ({ error }) => {alert(error)}); destructure the cb and do something to it
 
-//we now have to implement our cleanup which will emit the disconnect and turn the socket off for the userr
+//we now have to implement our cleanup which will emit the disconnect and turn the socket off for the user
 
+//MESSAGE
+//lets create a new use effect for the messages and also states
+//on message from the server, add the message to the array and only render if the message changes
+
+//emit the sendMessage which goes to backend callback clear the string
 let socket;
 
 const Chat = ({ location }) => {
 	const [name, setName] = useState("");
 	const [room, setRoom] = useState("");
+	const [message, setMessage] = useState("");
+	const [messages, setMessages] = useState([]);
+
 	const ENDPOINT = "localhost:5000";
 
 	useEffect(() => {
@@ -41,7 +49,36 @@ const Chat = ({ location }) => {
 			socket.off();
 		};
 	}, [ENDPOINT, location.search]);
-	return <div>Chat</div>;
+
+	useEffect(() => {
+		socket.on("message", (message) => {
+			setMessages([...messages, message]);
+		});
+	}, [messages]);
+
+	const sendMessage = (event) => {
+		event.preventDefault();
+
+		if (message) {
+			socket.emit("sendMessage", message, () => setMessage(""));
+		}
+	};
+
+	console.log(message, messages);
+	return (
+		<div>
+			<form onSubmit={sendMessage} style={{ margin: "0 auto" }}>
+				<input
+					value={message}
+					onChange={(e) => setMessage(e.target.value)}
+					style={{ height: "60px", width: "200px" }}
+				/>
+				<button type="submit" style={{ padding: "5px" }}>
+					Send Message
+				</button>
+			</form>
+		</div>
+	);
 };
 
 export default Chat;

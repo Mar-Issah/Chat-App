@@ -33,6 +33,16 @@ app.use(router);
 
 //the addUser fxn either returns error or user. call it here pass in params and get the returns. if error prin the error in the cb fxn
 
+//well if there are no errors join the user to a room using socket.join(<room>) ie pass in the room. now we can do the fun stuff such as messaging, event handlng etc
+
+//after the user join emit message to the user to welcome the user to the chat and also emit a messgae to only the room that the user has joined using the broadcast
+
+//and the call the cb fxn which will only run if there is an error on the frontend
+
+//we will name the admin generated 'message' and the user generated message 'sendMessage' coming/emitting from the frontend
+
+//withe the sendMessage from the frontend we will get the user and send the message from the server to the room the user is in
+
 const { addUser, removeUser, getUser, getUsersInRoom } = require("./users");
 
 const io = socketio(server);
@@ -43,6 +53,27 @@ io.on("connection", (socket) => {
 		const { error, user } = addUser({ id: socket.id, name, room });
 
 		if (error) return cb(error);
+
+		socket.join(user.room);
+
+		// for emit emit 2nd param is a payload to send
+		socket.emit("message", {
+			user: "admin",
+			text: `${user.name}, welcome to room ${user.room}.`,
+		});
+		socket.broadcast
+			.to(user.room)
+			.emit("message", { user: "admin", text: `${user.name} has joined!` });
+
+		cb();
+	});
+
+	socket.on("sendMessage", (message, callback) => {
+		const user = getUser(socket.id);
+
+		io.to(user.room).emit("message", { user: user.name, text: message });
+
+		callback();
 	});
 	socket.on("disconnect", () => {
 		console.log("user has disconnected");
