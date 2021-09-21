@@ -78,10 +78,6 @@ code {
 		0px 6px 30px rgba(0, 0, 0, 0.12), 0px 8px 10px rgba(0, 0, 0, 0.2);
 }
 
-.input-form {
-	height: 25rem;
-	background-color: rgb(255, 255, 255);
-}
 .message-input {
 	width: 100% !important;
 	display: flex;
@@ -95,5 +91,8 @@ code {
 .message-form-control {
 	border-radius: 0;
 	width: 100% !important;
+}
+.messages {
+	height: 27rem;
 }
 /* Chat component  end*/

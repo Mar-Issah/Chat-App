@@ -3,6 +3,7 @@ import queryString from "query-string";
 import io from "socket.io-client";
 import InfoBar from "./InfoBar";
 import MessageInput from "./MessageInput";
+import Messages from "./Messages";
 
 //we will use the query string to extract our query fron the url
 
@@ -71,10 +72,10 @@ const Chat = ({ location }) => {
 
 	console.log(message, messages);
 	return (
-		<div className="chat-container">
-			<div>
+		<div>
+			<div className="chat-container">
 				<InfoBar room={room} />
-
+				<Messages messages={messages} name={name} />s
 				<MessageInput
 					message={message}
 					setMessage={setMessage}
