@@ -4,6 +4,7 @@ import io from "socket.io-client";
 import InfoBar from "./InfoBar";
 import MessageInput from "./MessageInput";
 import Messages from "./Messages";
+import UsersContainer from "./UsersContainer";
 
 //we will use the query string to extract our query fron the url
 
@@ -34,6 +35,7 @@ const Chat = ({ location }) => {
 	const [room, setRoom] = useState("");
 	const [message, setMessage] = useState("");
 	const [messages, setMessages] = useState([]);
+	const [users, setUsers] = useState(""); //to display list of users in room
 
 	const ENDPOINT = "localhost:5000";
 
@@ -82,6 +84,7 @@ const Chat = ({ location }) => {
 					sendMessage={sendMessage}
 				/>
 			</div>
+			<UsersContainer users={users} />
 		</div>
 	);
 };
