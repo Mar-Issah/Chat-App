@@ -43,6 +43,9 @@ app.use(router);
 
 //withe the sendMessage from the frontend we will get the user and send the message from the server to the room the user is in
 
+//REMOVE USER
+//when the user refreshes the page the user is still there but we cannot see it
+//in the disconnect remove the user and notify the rest of the user  not admin
 const { addUser, removeUser, getUser, getUsersInRoom } = require("./users");
 
 const io = socketio(server);
@@ -77,6 +80,10 @@ io.on("connection", (socket) => {
 	});
 	socket.on("disconnect", () => {
 		console.log("user has disconnected");
+		  const user = removeUser(socket.id);
+
+    if(user) {
+      io.to(user.room).emit('message', { user: 'Admin', text: `${user.name} has left.` });
 	});
 });
 
