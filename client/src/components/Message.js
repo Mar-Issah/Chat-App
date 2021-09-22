@@ -1,10 +1,6 @@
 import React from "react";
 import ReactEmoji from "react-emoji";
 
-//extraect taext and user from message
-
-//we want to sturcture is in such a way that the messages from the sende is on the left snd reciever is on the right
-
 const Message = ({ message: { text, user }, name }) => {
 	let isSentByCurrentUser = false;
 

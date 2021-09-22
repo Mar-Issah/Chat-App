@@ -2,8 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { UserCheck, X } from "react-feather";
 
-//kinda a navbar on top of the chat
-
 const InfoBar = ({ room }) => (
 	<div className="infobar-container">
 		<div className="icons-container">
