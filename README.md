@@ -35,12 +35,12 @@ If these commands print out a version number in the terminal, you are good to go
 
 ### Installation
 
-1. Clone the repo on your local machine
+1. Clone the repo on your local machine.
    ```sh
    git clonehttps://github.com/Mar-Issah/Chat-App.git
    ```
-2. Download and install [Visual Studio Code](https://code.visualstudio.com/)
-3. Change directory into the new folder and type the following, this installs the required dependencies
+2. Download and install [Visual Studio Code](https://code.visualstudio.com/).
+3. Change directory into the new folder and type the following, this installs the required dependencies.
     ```sh
     npm install
    ```
@@ -54,7 +54,7 @@ If these commands print out a version number in the terminal, you are good to go
 <!-- USAGE EXAMPLES -->
 
 ## Usage
-Allows to to chat or send message to another user
+Allows to to chat or send message to another user.
 <!-- LICENSE -->
 
 ## License :page_facing_up:
