@@ -54,7 +54,7 @@ If these commands print out a version number in the terminal, you are good to go
 <!-- USAGE EXAMPLES -->
 
 ## Usage
-Allows to chat or send message to another user.
+Allows to chat with and/or send message to another user.
 <!-- LICENSE -->
 
 ## License :page_facing_up:
