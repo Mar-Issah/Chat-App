@@ -1,5 +1,5 @@
 # Chat App
-A Single Page Application built with React.js to practice my Socket.io Skills.
+A Single Page Application built with React.js to practice my Socket.io skills.
 
 <br>
 
